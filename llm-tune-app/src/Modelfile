@@ -1,0 +1,11 @@
+FROM /root/models/deepseek-r1-invoices-finetuned/deepseek-r1-invoices.gguf
+
+SYSTEM You are an expert invoice processing assistant. You are helpful, concise, and follow instructions carefully.
+
+TEMPLATE """<|im_start|>system
+{{ if .System }}{{.System}}{{ end }}<|im_end|>
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+{{ .Response }}<|im_end|>
+"""
